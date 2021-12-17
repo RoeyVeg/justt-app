@@ -1,6 +1,7 @@
 import React from "react";
 import Title from "./components/Title";
 import NewBillForm from "./components/NewBillForm";
+import TransactionsTable from "./components/TransactionsTable";
 import Store from "./model/store";
 const App = () => {
   const store = new Store();
@@ -8,7 +9,7 @@ const App = () => {
     <div className="container">
       <Title />
       <NewBillForm store={store} />
-      <div className="row">Table</div>
+      <TransactionsTable store={store} />
     </div>
   );
 };
