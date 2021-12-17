@@ -1,3 +1,4 @@
+import axios from "axios";
 export default class Store {
   constructor() {
     this.customers = [
@@ -72,5 +73,17 @@ export default class Store {
       lastName: "",
       email: "",
     };
+  };
+
+  fetchAllTransactions = async () => {
+    let result = [];
+    try {
+      result = await axios.get("http://localhost:8080/transactions");
+      console.log({ res: result.data.trans });
+      this.transactions = result;
+    } catch (error) {
+      result = [];
+    }
+    return result;
   };
 }
