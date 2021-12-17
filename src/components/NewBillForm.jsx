@@ -6,6 +6,12 @@ const NewBillForm = (props) => {
   const [currency, setCurrency] = useState("");
   const [ccType, setCcType] = useState("");
   const [ccNumber, setCcNumber] = useState("");
+  const submitForm = () => {
+    setPrice(0);
+    setCurrency("");
+    setCcType("");
+    setCcNumber("");
+  };
   return (
     <div className="row">
       <div className="h3 m-3">Enter a new transaction</div>
@@ -110,7 +116,7 @@ const NewBillForm = (props) => {
             type="submit"
             className="btn btn-primary"
             onClick={(e) => {
-              console.log({ ccNumber });
+              submitForm();
             }}
           >
             Submit
