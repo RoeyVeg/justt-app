@@ -5,7 +5,8 @@ const TransactionsTable = (props) => {
   useEffect(() => {
     (async () => {
       const trans = await props.store.fetchAllTransactions();
-      setTransactions(trans.data.trans);
+      console.log({ trans });
+      setTransactions(trans.data);
     })();
   }, []);
   return (
