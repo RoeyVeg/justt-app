@@ -12,7 +12,9 @@ const TransactionsTable = (props) => {
       <div className="h3 m-3">Transactions</div>
       <hr />
       <div class="row ms-3 justify-content-start">
-        <TransactionRow row={{ transaction_id: "aa1" }} />
+        {props.store.transactions.map((trans, index) => (
+          <TransactionRow item={`index${index}`} row={trans} />
+        ))}
       </div>
     </div>
   );

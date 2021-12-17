@@ -1,34 +1,48 @@
 import React from "react";
 
-const TransactionRow = ({ row }) => {
+const TransactionRow = (props) => {
   return (
-    <>
+    <div>
       <div className="row p-3 border justify-content-start">
-        <div className="mb-3">{JSON.stringify(row)}</div>
-        <div class="col-4">
+        <div className="mb-3">
+          {Object.entries(props.row).map(([key, val]) => (
+            <p>
+              <strong>{key}:</strong>
+              <span>{` ${val}`}</span>
+            </p>
+          ))}
+        </div>
+        <div className="col-4">
           <button
-            class="btn btn-primary"
+            className="btn btn-primary"
             type="button"
             data-bs-toggle="collapse"
-            data-bs-target={`#${row.transaction_id}`}
+            data-bs-target="#collapseExample"
+            aria-expanded="false"
+            aria-controls="collapseExample"
+            // data-bs-target={`#${props.item}`}
           >
             Edit
           </button>
         </div>
-        <div class="col-4">
-          <button class="btn btn-primary" type="button">
+        <div className="col-4">
+          <button className="btn btn-primary" type="button">
             Delete
           </button>
         </div>
       </div>
-      <div class="collapse" id={`${row.transaction_id}`}>
-        <div class="card card-body">
+      <div
+        className="collapse"
+        id="collapseExample"
+        //   id={props.item}
+      >
+        <div className="card card-body">
           Some placeholder content for the collapse component. This panel is
           hidden by default but revealed when the user activates the relevant
           trigger.
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
