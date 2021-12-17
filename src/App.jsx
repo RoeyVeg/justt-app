@@ -6,7 +6,6 @@ const App = () => {
     <div className="container">
       <Title />
       <NewBillForm />
-      <div className="row">Form</div>
       <div className="row">Table</div>
     </div>
   );
