@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 
-const NewBillForm = () => {
+const NewBillForm = (props) => {
+  const [custId, setCusId] = useState(props.store.getCustomersIds()[0]);
   return (
     <div className="row">
       <div className="h3 m-3">Enter a new transaction</div>
@@ -8,13 +9,16 @@ const NewBillForm = () => {
       <div class="row m-3 justify-content-start">
         <div class="col-4">
           <label for="selectCustomer" className="form-label">
-            Customer
+            Customer Id
           </label>
-          <select className="form-select" aria-label="Default select example">
-            <option selected>Open this select menu</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+          <select
+            id="selectCustomer"
+            className="form-select"
+            onChange={(e) => setCusId(e.target.value)}
+          >
+            {props.store.getCustomersIds().map((id) => (
+              <option value={id}>{`${id}`}</option>
+            ))}
           </select>
         </div>
       </div>
@@ -24,7 +28,7 @@ const NewBillForm = () => {
             type="text"
             className="form-control disabled readonly"
             id="firstName"
-            value="Roey"
+            value={props.store.getCustomerDetailsById(custId).firstName}
           />
         </div>
         <div class="col-4">
@@ -32,7 +36,7 @@ const NewBillForm = () => {
             type="text"
             className="form-control disabled readonly"
             id="lastName"
-            value="Weg"
+            value={props.store.getCustomerDetailsById(custId).lastName}
           />
         </div>
         <div class="col-4">
@@ -40,7 +44,7 @@ const NewBillForm = () => {
             type="email"
             className="form-control disabled readonly"
             id="email"
-            value="i@gmail.com"
+            value={props.store.getCustomerDetailsById(custId).email}
           />
         </div>
       </div>
