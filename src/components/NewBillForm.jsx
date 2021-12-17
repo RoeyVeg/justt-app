@@ -22,9 +22,25 @@ const NewBillForm = () => {
         <div class="col-4">
           <input
             type="text"
-            className="form-control"
+            className="form-control disabled readonly"
             id="firstName"
             value="Roey"
+          />
+        </div>
+        <div class="col-4">
+          <input
+            type="text"
+            className="form-control disabled readonly"
+            id="lastName"
+            value="Weg"
+          />
+        </div>
+        <div class="col-4">
+          <input
+            type="email"
+            className="form-control disabled readonly"
+            id="email"
+            value="i@gmail.com"
           />
         </div>
       </div>
