@@ -85,6 +85,14 @@ export default class Store {
     }
     return result;
   };
+  deleteTransaction = async (id) => {
+    console.log({ id });
+    try {
+      await axios.delete(`http://localhost:8080/transactions/${id}`);
+    } catch (error) {
+      console.log("error deleting a transaction", error);
+    }
+  };
   addNewTransaction = async (
     custId,
     firstName,
@@ -106,7 +114,7 @@ export default class Store {
       ccNumber,
     };
     try {
-      await axios.post("http://localhost:8080/add-transaction", body);
+      await axios.post("http://localhost:8080/transactions", body);
     } catch (error) {
       console.log("error creating a transaction", error);
     }

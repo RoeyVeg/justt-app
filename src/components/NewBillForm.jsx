@@ -20,6 +20,10 @@ const NewBillForm = (props) => {
       ccType,
       ccNumber
     );
+    setCusId("");
+    setFirstName("");
+    setLastName("");
+    setEmail("");
     setPrice(0);
     setCurrency("");
     setCcType("");

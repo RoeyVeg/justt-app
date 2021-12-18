@@ -27,7 +27,11 @@ const TransactionsTable = (props) => {
       <hr />
       <div class="row ms-3 justify-content-start">
         {transactions.map((trans, index) => (
-          <TransactionRow item={`index${index}`} row={trans} />
+          <TransactionRow
+            item={`index${index}`}
+            row={trans}
+            store={props.store}
+          />
         ))}
       </div>
     </div>

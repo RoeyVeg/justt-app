@@ -26,7 +26,13 @@ const TransactionRow = (props) => {
           </button>
         </div>
         <div className="col-4">
-          <button className="btn btn-primary" type="button">
+          <button
+            className="btn btn-primary"
+            type="button"
+            onClick={() => {
+              props.store.deleteTransaction(props.row.customer_id);
+            }}
+          >
             Delete
           </button>
         </div>
