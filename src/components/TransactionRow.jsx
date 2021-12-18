@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
+import EditBillForm from "./EditBillForm";
 
 const TransactionRow = (props) => {
+  const [editedCustomerId, setEditedCustomerId] = useState("");
   return (
     <div>
       <div className="row p-3 border justify-content-start">
@@ -16,11 +18,7 @@ const TransactionRow = (props) => {
           <button
             className="btn btn-primary"
             type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapseExample"
-            aria-expanded="false"
-            aria-controls="collapseExample"
-            // data-bs-target={`#${props.item}`}
+            onClick={() => setEditedCustomerId(props.row.customer_id)}
           >
             Edit
           </button>
@@ -37,17 +35,7 @@ const TransactionRow = (props) => {
           </button>
         </div>
       </div>
-      <div
-        className="collapse"
-        id="collapseExample"
-        //   id={props.item}
-      >
-        <div className="card card-body">
-          Some placeholder content for the collapse component. This panel is
-          hidden by default but revealed when the user activates the relevant
-          trigger.
-        </div>
-      </div>
+      {editedCustomerId && <EditBillForm store={props.store} />}
     </div>
   );
 };
