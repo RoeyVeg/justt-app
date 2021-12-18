@@ -32,6 +32,17 @@ const EditBillForm = (props) => {
     setCcNumber("");
     props.resetEditedId();
   };
+  const cancelForm = () => {
+    setCusId("");
+    setFirstName("");
+    setLastName("");
+    setEmail("");
+    setPrice(0);
+    setCurrency("");
+    setCcType("");
+    setCcNumber("");
+    props.resetEditedId();
+  };
   return (
     <div className="row">
       <div className="h3 m-3">Edit transaction</div>
@@ -154,6 +165,17 @@ const EditBillForm = (props) => {
             }}
           >
             Submit
+          </button>
+        </div>
+        <div class="col-4">
+          <button
+            type="submit"
+            className="btn btn-primary"
+            onClick={(e) => {
+              cancelForm();
+            }}
+          >
+            Cancel
           </button>
         </div>
       </div>
