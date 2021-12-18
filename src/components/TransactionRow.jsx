@@ -3,6 +3,7 @@ import EditBillForm from "./EditBillForm";
 
 const TransactionRow = (props) => {
   const [editedCustomerId, setEditedCustomerId] = useState("");
+  const resetEditedId = () => setEditedCustomerId("");
   return (
     <div>
       <div className="row p-3 border justify-content-start">
@@ -35,7 +36,13 @@ const TransactionRow = (props) => {
           </button>
         </div>
       </div>
-      {editedCustomerId && <EditBillForm store={props.store} />}
+      {editedCustomerId && (
+        <EditBillForm
+          store={props.store}
+          transaction={props.row}
+          resetEditedId={resetEditedId}
+        />
+      )}
     </div>
   );
 };

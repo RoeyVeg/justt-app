@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 
 const EditBillForm = (props) => {
-  const [custId, setCusId] = useState(props.editedCustomerId);
-  const [firstName, setFirstName] = useState(
-    props.store.getCustomerDetailsById(props.editedCustomerId).first_name
+  const [custId, setCusId] = useState(props.transaction.customer_id);
+  const [firstName, setFirstName] = useState(props.transaction.first_name);
+  const [lastName, setLastName] = useState(props.transaction.last_name);
+  const [email, setEmail] = useState(props.transaction.email);
+  const [totalPrice, setPrice] = useState(props.transaction.total_price);
+  const [currency, setCurrency] = useState(props.transaction.currency);
+  const [ccType, setCcType] = useState(props.transaction.cerdit_card_type);
+  const [ccNumber, setCcNumber] = useState(
+    props.transaction.cerdit_card_number
   );
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [totalPrice, setPrice] = useState(0);
-  const [currency, setCurrency] = useState("");
-  const [ccType, setCcType] = useState("");
-  const [ccNumber, setCcNumber] = useState("");
   const submitForm = () => {
-    props.store.addNewTransaction(
+    props.store.editTransaction(
       custId,
       firstName,
       lastName,
@@ -30,6 +30,7 @@ const EditBillForm = (props) => {
     setCurrency("");
     setCcType("");
     setCcNumber("");
+    props.resetEditedId();
   };
   return (
     <div className="row">

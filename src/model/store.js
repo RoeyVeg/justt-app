@@ -82,4 +82,30 @@ export default class Store {
       console.log("error creating a transaction", error);
     }
   };
+  editTransaction = async (
+    custId,
+    firstName,
+    lastName,
+    email,
+    totalPrice,
+    currency,
+    ccType,
+    ccNumber
+  ) => {
+    const body = {
+      custId,
+      firstName,
+      lastName,
+      email,
+      totalPrice,
+      currency,
+      ccType,
+      ccNumber,
+    };
+    try {
+      await axios.put("http://localhost:8080/transactions", body);
+    } catch (error) {
+      console.log("error creating a transaction", error);
+    }
+  };
 }
