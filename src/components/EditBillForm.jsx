@@ -47,8 +47,8 @@ const EditBillForm = (props) => {
     <div className="row">
       <div className="h3 m-3">Edit transaction</div>
       <hr />
-      <div class="row m-3 justify-content-start">
-        <div class="col-4">
+      <div className="row m-3 justify-content-start">
+        <div className="col-4">
           <label for="customerId" className="form-label">
             Customer Id
           </label>
@@ -63,8 +63,8 @@ const EditBillForm = (props) => {
           />
         </div>
       </div>
-      <div class="row m-3 justify-content-start">
-        <div class="col-4">
+      <div className="row m-3 justify-content-start">
+        <div className="col-4">
           <label for="firstName" className="form-label">
             Firts Name
           </label>
@@ -77,7 +77,7 @@ const EditBillForm = (props) => {
             // value={props.store.getCustomerDetailsById(custId).firstName}
           />
         </div>
-        <div class="col-4">
+        <div className="col-4">
           <label for="lastName" className="form-label">
             Last Name
           </label>
@@ -90,7 +90,7 @@ const EditBillForm = (props) => {
             // value={props.store.getCustomerDetailsById(custId).firstName}
           />
         </div>
-        <div class="col-4">
+        <div className="col-4">
           <label for="email" className="form-label">
             Email
           </label>
@@ -103,8 +103,8 @@ const EditBillForm = (props) => {
           />
         </div>
       </div>
-      <div class="row m-3 justify-content-start">
-        <div class="col-4">
+      <div className="row m-3 justify-content-start">
+        <div className="col-4">
           <label for="totalPrice" className="form-label">
             Price
           </label>
@@ -116,7 +116,7 @@ const EditBillForm = (props) => {
             value={totalPrice}
           />
         </div>
-        <div class="col-4">
+        <div className="col-4">
           <label for="currency" className="form-label">
             Currecncy
           </label>
@@ -129,8 +129,8 @@ const EditBillForm = (props) => {
           />
         </div>
       </div>
-      <div class="row m-3 justify-content-start">
-        <div class="col-4">
+      <div className="row m-3 justify-content-start">
+        <div className="col-4">
           <label for="ccType" className="form-label">
             Credit Card Type
           </label>
@@ -142,7 +142,7 @@ const EditBillForm = (props) => {
             value={ccType}
           />
         </div>
-        <div class="col-4">
+        <div className="col-4">
           <label for="ccNumber" className="form-label">
             Credit Card Number
           </label>
@@ -155,8 +155,8 @@ const EditBillForm = (props) => {
           />
         </div>
       </div>
-      <div class="row m-3 justify-content-start">
-        <div class="col-4">
+      <div className="row m-3 justify-content-start">
+        <div className="col-4">
           <button
             type="submit"
             className="btn btn-primary"
@@ -167,7 +167,7 @@ const EditBillForm = (props) => {
             Submit
           </button>
         </div>
-        <div class="col-4">
+        <div className="col-4">
           <button
             type="submit"
             className="btn btn-primary"
