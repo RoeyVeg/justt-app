@@ -79,11 +79,36 @@ export default class Store {
     let result = [];
     try {
       result = await axios.get("http://localhost:8080/transactions");
-      console.log({ res: result.data.trans });
       this.transactions = result;
     } catch (error) {
       result = [];
     }
     return result;
+  };
+  addNewTransaction = async (
+    custId,
+    firstName,
+    lastName,
+    email,
+    totalPrice,
+    currency,
+    ccType,
+    ccNumber
+  ) => {
+    const body = {
+      custId,
+      firstName,
+      lastName,
+      email,
+      totalPrice,
+      currency,
+      ccType,
+      ccNumber,
+    };
+    try {
+      await axios.post("http://localhost:8080/add-transaction", body);
+    } catch (error) {
+      console.log("error creating a transaction", error);
+    }
   };
 }

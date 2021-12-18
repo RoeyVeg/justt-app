@@ -1,12 +1,25 @@
 import React, { useState } from "react";
 
 const NewBillForm = (props) => {
-  const [custId, setCusId] = useState(props.store.getCustomersIds()[0]);
+  const [custId, setCusId] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
   const [totalPrice, setPrice] = useState(0);
   const [currency, setCurrency] = useState("");
   const [ccType, setCcType] = useState("");
   const [ccNumber, setCcNumber] = useState("");
   const submitForm = () => {
+    props.store.addNewTransaction(
+      custId,
+      firstName,
+      lastName,
+      email,
+      totalPrice,
+      currency,
+      ccType,
+      ccNumber
+    );
     setPrice(0);
     setCurrency("");
     setCcType("");
@@ -21,40 +34,52 @@ const NewBillForm = (props) => {
           <label for="selectCustomer" className="form-label">
             Customer Id
           </label>
-          <select
-            id="selectCustomer"
-            className="form-select"
+          <input
             onChange={(e) => setCusId(e.target.value)}
-          >
-            {props.store.getCustomersIds().map((id) => (
-              <option value={id}>{`${id}`}</option>
-            ))}
-          </select>
+            type="text"
+            className="form-control"
+            id="custId"
+            value={custId}
+          />
         </div>
       </div>
       <div class="row m-3 justify-content-start">
         <div class="col-4">
+          <label for="firstName" className="form-label">
+            Firts Name
+          </label>
           <input
             type="text"
             className="form-control disabled"
             id="firstName"
-            value={props.store.getCustomerDetailsById(custId).firstName}
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+            // value={props.store.getCustomerDetailsById(custId).firstName}
           />
         </div>
         <div class="col-4">
+          <label for="lastName" className="form-label">
+            Last Name
+          </label>
           <input
             type="text"
             className="form-control disabled"
             id="lastName"
-            value={props.store.getCustomerDetailsById(custId).lastName}
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+            // value={props.store.getCustomerDetailsById(custId).firstName}
           />
         </div>
         <div class="col-4">
+          <label for="email" className="form-label">
+            Email
+          </label>
           <input
             type="email"
             className="form-control disabled"
             id="email"
-            value={props.store.getCustomerDetailsById(custId).email}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
         </div>
       </div>
